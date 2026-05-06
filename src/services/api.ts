@@ -1,4 +1,4 @@
-import axios from 'axios'
+﻿import axios from 'axios'
 
 const rawApiUrl = import.meta.env.VITE_API_URL || '/api'
 const normalizedApiUrl = rawApiUrl.replace(/\/$/, '')
@@ -90,4 +90,16 @@ export const milestoneApi = {
   update: (id, data)   => api.put(`/milestones/${id}`, data),
   remove: id           => api.delete(`/milestones/${id}`),
   progress: (id, v)    => api.patch(`/milestones/${id}/progress`, { progress: v }),
+}
+
+// ── Notes (Encrypted) ─────────────────────────────
+export const noteApi = {
+  list:    params      => api.get('/notes', { params }),
+  get:     id          => api.get(`/notes/${id}`),
+  create:  data        => api.post('/notes', data),
+  update:  (id, data)  => api.put(`/notes/${id}`, data),
+  remove:  id          => api.delete(`/notes/${id}`),
+  restore: id          => api.post(`/notes/${id}/restore`),
+  archive: id          => api.post(`/notes/${id}/archive`),
+  pin:     id          => api.post(`/notes/${id}/pin`),
 }

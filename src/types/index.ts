@@ -55,3 +55,23 @@ export interface Todo {
   created_at?: string
   updated_at?: string
 }
+
+export interface EncryptedNote {
+  id: string
+  user_id: number
+  encrypted_title: string | null
+  encrypted_content: string
+  note_iv: string
+  note_tag: string[] | null
+  encryption_version: number
+  is_archived: boolean
+  is_deleted: boolean
+  is_pinned: boolean
+  last_synced_at: string | null
+  created_at: string
+  updated_at: string
+  // UI helper for decrypted content
+  decrypted_title?: string
+  decrypted_content?: string
+  decrypt_error?: boolean
+}

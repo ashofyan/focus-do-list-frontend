@@ -1,46 +1,46 @@
-import { NavLink, useNavigate } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
+﻿import { NavLink, useNavigate } from "react-router-dom"
+import { useQuery } from "@tanstack/react-query"
 import {
   LayoutDashboard, Calendar, BarChart2, Layers,
-  CheckSquare, LogOut, Settings, Tag
-} from 'lucide-react'
-import { format } from 'date-fns'
-import { useAuthStore } from '../../stores'
-import { todoApi } from '../../services/api'
+  CheckSquare, LogOut, Settings, Tag, Lock
+} from "lucide-react"
+import { format } from "date-fns"
+import { useAuthStore } from "../../stores"
+import { todoApi } from "../../services/api"
 
 const NAV = [
-  { to: '/',           icon: LayoutDashboard, label: 'Today',      badgeKey: 'today' },
-  { to: '/calendar',   icon: Calendar,        label: 'Calendar' },
-  { to: '/stats',      icon: BarChart2,       label: 'Stats' },
-  { to: '/milestones', icon: Layers,          label: 'Milestones' },
-  { to: '/groups',     icon: Tag,             label: 'Groups' },
-  { to: '/tasks',      icon: CheckSquare,     label: 'All Tasks',  badgeKey: 'tasks' },
+  { to: "/",           icon: LayoutDashboard, label: "Today",      badgeKey: "today" },
+  { to: "/calendar",   icon: Calendar,        label: "Calendar" },
+  { to: "/stats",      icon: BarChart2,       label: "Stats" },
+  { to: "/milestones", icon: Layers,          label: "Milestones" },
+  { to: "/notes",      icon: Lock,            label: "Notes" },
+  { to: "/groups",     icon: Tag,             label: "Groups" },
+  { to: "/tasks",      icon: CheckSquare,     label: "All Tasks",  badgeKey: "tasks" },
 ]
 
 export default function Sidebar() {
   const { user, logout } = useAuthStore()
   const navigate = useNavigate()
 
-  // Fetch today's pending count for badge
   const { data: todayData } = useQuery({
-    queryKey: ['todos-today-count'],
-    queryFn: () => todoApi.list({ date: format(new Date(), 'yyyy-MM-dd') }).then(r => r.data.data ?? []),
+    queryKey: ["todos-today-count"],
+    queryFn: () => todoApi.list({ date: format(new Date(), "yyyy-MM-dd") }).then(r => r.data.data ?? []),
     staleTime: 60_000,
   })
 
-  const todayPending = (todayData ?? []).filter(t => t.status !== 'completed').length
+  const todayPending = (todayData ?? []).filter((t: any) => t.status !== "completed").length
 
   const initials = user?.name
-    ? user.name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase()
-    : '?'
+    ? user.name.split(" ").map((w: any) => w[0]).slice(0, 2).join("").toUpperCase()
+    : "?"
 
   const handleLogout = async () => {
     await logout()
-    navigate('/login')
+    navigate("/login")
   }
 
-  const getBadge = (key) => {
-    if (key === 'today') return todayPending > 0 ? todayPending : null
+  const getBadge = (key: string) => {
+    if (key === "today") return todayPending > 0 ? todayPending : null
     return null
   }
 
@@ -59,8 +59,8 @@ export default function Sidebar() {
             <NavLink
               key={to}
               to={to}
-              end={to === '/'}
-              className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
+              end={to === "/"}
+              className={({ isActive }) => `nav-item` + (isActive ? " active" : "")}
             >
               <Icon size={15} strokeWidth={1.8} style={{ flexShrink: 0 }} />
               <span className="nav-text">{label}</span>
@@ -73,7 +73,7 @@ export default function Sidebar() {
 
         <NavLink
           to="/settings"
-          className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
+          className={({ isActive }) => `nav-item` + (isActive ? " active" : "")}
         >
           <Settings size={15} strokeWidth={1.8} style={{ flexShrink: 0 }} />
           <span className="nav-text">Settings</span>
@@ -88,8 +88,8 @@ export default function Sidebar() {
       <div className="sidebar-footer">
         <div className="avatar">{initials}</div>
         <div className="sidebar-user-info">
-          <div className="sidebar-user-name">{user?.name ?? '—'}</div>
-          <div className="sidebar-user-email">{user?.email ?? ''}</div>
+          <div className="sidebar-user-name">{user?.name ?? "—"}</div>
+          <div className="sidebar-user-email">{user?.email ?? ""}</div>
         </div>
       </div>
     </aside>
