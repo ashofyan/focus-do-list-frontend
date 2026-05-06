@@ -50,19 +50,6 @@ FocusDoList adalah aplikasi manajemen tugas minimalis dengan estetika monokrom y
    `
    Buka [http://localhost:5173](http://localhost:5173) di browser Anda.
 
-## 🌐 Demo Tanpa Backend (Offline Mode)
-
-Untuk keperluan portfolio atau demo cepat tanpa harus menjalankan Laravel Backend, Anda bisa menggunakan **Mock Service Worker (MSW)**.
-
-### Cara Aktivasi Mock (Opsional untuk Portfolio):
-Jika Anda ingin mengirimkan link demo (misal via Vercel/Netlify) yang bisa langsung dicoba:
-1. Pasang MSW: 
-pm install msw --save-dev
-2. Buat handlers untuk mensimulasikan API response.
-3. Inisialisasi worker di src/main.tsx saat environment adalah production/demo.
-
-*Catatan: Saat ini aplikasi dikonfigurasi untuk terhubung ke REST API asli. Untuk demo live, disarankan menggunakan backend yang di-deploy (Railway/Render) atau menggunakan pendekatan Mocking.*
-
 ## 🔒 Keamanan & Praktik Terbaik
 
 - **.gitignore**: File sensitif seperti .env, folder 
