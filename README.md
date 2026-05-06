@@ -2,7 +2,7 @@
 
 FocusDoList adalah aplikasi manajemen tugas minimalis dengan estetika monokrom yang bersih. Dibangun menggunakan **React 18**, **TypeScript**, dan **Vite**, aplikasi ini menawarkan pengalaman pengguna yang fokus dan elegan.
 
-![FocusDoList Preview](public/pwa-icon.svg) *Ganti dengan screenshot aplikasi jika sudah ada*
+![FocusDoList Preview](public/screenshot.png)
 
 ## 🚀 Fitur Utama
 
