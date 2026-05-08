@@ -43,25 +43,25 @@ Pantau kemajuan proyek jangka panjang dengan integrasi tugas.
 ## 📦 Instalasi Lokal
 
 1. **Clone Repository**
-   `ash
+   `bash
    git clone https://github.com/username/todo-frontend.git
    cd todo-frontend
    `
 
 2. **Install Dependencies**
-   `ash
+   `bash
    npm install
    `
 
 3. **Konfigurasi Environment**
    Salin file .env.example menjadi .env:
-   `ash
+   `bash
    cp .env.example .env
    `
    Pastikan VITE_API_URL mengarah ke backend Laravel Anda.
 
 4. **Jalankan Aplikasi**
-   `ash
+   `bash
    npm run dev
    `
    Buka [http://localhost:5173](http://localhost:5173).
