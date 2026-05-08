@@ -73,5 +73,13 @@ Pantau kemajuan proyek jangka panjang dengan integrasi tugas.
 - **Type Safety**: Implementasi TypeScript yang ketat untuk skalabilitas kode.
 - **Clean Documentation**: .gitignore dikonfigurasi untuk melindungi file sensitif.
 
+## 🚀 Live Demo
+
+Silakan coba aplikasi secara langsung melalui tautan di bawah ini:
+
+**Link Demo:** [focusdolist-demo.fynworks.my.id](https://focusdolist-demo.fynworks.my.id/)
+
+> **Petunjuk Login:** Anda tidak perlu memasukkan kredensial secara manual. Cukup klik tombol **Login** untuk langsung masuk ke dashboard.
+
 ---
 Dibuat dengan ❤️ untuk produktivitas yang lebih fokus dan aman.
